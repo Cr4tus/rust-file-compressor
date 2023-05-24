@@ -14,7 +14,7 @@ Where the *source* & *destination* are valid file paths. After the program finis
 - the size of the source file
 - the size of the output (compressed) file
 
-## Languages:
+## Programming Languages:
 - Rust
 
 ## Frameworks & Libraries:
