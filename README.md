@@ -24,20 +24,20 @@ Where the *source* & *destination* are valid file paths. After the program finis
 First step is to check if the number of program arguments is correct:
 ```rust
 let program_arguments = env::args().collect::<Vec<String>>();
-    if 3 != program_arguments.len() {
-        eprintln!("Usage: cargo run <source> <destination>");
-        return;
-    }
+if 3 != program_arguments.len() {
+    eprintln!("Usage: cargo run <source> <destination>");
+    return;
+}
 ```
 Second step is to check if the path for the input file is valid and initialize an object that lets us read the file:
 ```rust
 // input file & reader initialization
-    let source_file = match File::open(&program_arguments[1]) {
-        Ok(file) => file,
-        Err(error) => {
-            eprintln!("Cannot open the source file because of an error: {}.", error);
-            return;
-        }
-    };
+let source_file = match File::open(&program_arguments[1]) {
+    Ok(file) => file,
+    Err(error) => {
+        eprintln!("Cannot open the source file because of an error: {}.", error);
+        return;
+    }
+};
 ```
 We do the almost same thing for the output file, validating its path, then we start encoding operation by copying the content of the input file in the encoder object. After that, we copy the encoded bytes in the output file and print the results, or throw an error if there is the case.
